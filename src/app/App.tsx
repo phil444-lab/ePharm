@@ -495,7 +495,6 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
           <p className="text-center text-sm font-medium text-muted-foreground mb-8 uppercase tracking-wider">
             Nos pharmacies partenaires
           </p>
-          <style>{`@keyframes carousel { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
           <div className="overflow-hidden">
             <div
               className="flex gap-6"
