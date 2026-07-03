@@ -145,7 +145,7 @@ function Navbar({ page, setPage, cartCount }: { page: Page; setPage: (p: Page) =
   ];
 
   return (
-    <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm" style={{ transform: "translateZ(0)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -363,7 +363,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-orange-50">
+      <section className="relative bg-gradient-to-br from-green-50 via-white to-orange-50" style={{ isolation: "isolate" }}>
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, #00A86B 0%, transparent 50%), radial-gradient(circle at 80% 20%, #FF5F1F 0%, transparent 50%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -490,7 +490,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
       </section>
 
       {/* Partners */}
-      <section className="py-14 bg-white border-t border-border overflow-hidden">
+      <section className="py-14 bg-white border-t border-border" style={{ isolation: "isolate", overflow: "hidden" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <p className="text-center text-sm font-medium text-muted-foreground mb-8 uppercase tracking-wider">
             Nos pharmacies partenaires
@@ -498,7 +498,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
           <div className="overflow-hidden">
             <div
               className="flex gap-6"
-              style={{ animation: "carousel 18s linear infinite", width: "max-content" }}
+              style={{ animation: "carousel 18s linear infinite", width: "max-content", willChange: "transform", transform: "translateZ(0)" }}
             >
               {[...PARTNERS, ...PARTNERS].map((p, i) => (
                 <div key={i} className="w-48 flex-shrink-0 bg-background rounded-2xl border border-border hover:border-primary/30 transition-colors overflow-hidden">
@@ -577,7 +577,7 @@ function MedicineCard({ med, onClick }: { med: Medicine; onClick: () => void }) 
 function MedicineModal({ med, onClose, addToCart }: { med: Medicine; onClose: () => void; addToCart: (med: Medicine, pharm: PharmacyStock) => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
       <div className="relative bg-white rounded-t-3xl sm:rounded-2xl w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 bg-white z-10 px-6 pt-6 pb-4 border-b border-border flex items-start justify-between">
