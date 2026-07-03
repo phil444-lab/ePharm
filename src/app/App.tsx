@@ -854,20 +854,20 @@ function PharmaciesPage() {
             </div>
           </div>
           {/* Fake map pins */}
-          {PHARMACIES.map((p, i) => (
+          {PHARMACIES.map((pharm, i) => (
             <button
-              key={p.id}
-              onClick={() => setSelected(p)}
-              className={`absolute transition-transform hover:scale-110 ${selected?.id === p.id ? "scale-110" : ""}`}
+              key={pharm.id}
+              onClick={() => setSelected(pharm)}
+              className={`absolute transition-transform hover:scale-110 ${selected?.id === pharm.id ? "scale-110" : ""}`}
               style={{ left: `${15 + (i % 4) * 20}%`, top: `${20 + Math.floor(i / 4) * 35 + (i % 2) * 15}%` }}
             >
-              <div className={`w-10 h-10 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-white text-sm font-bold ${p.open ? "bg-primary" : "bg-muted-foreground"}`}>
+              <div className={`w-10 h-10 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-white text-sm font-bold ${pharm.open ? "bg-primary" : "bg-muted-foreground"}`}>
                 <MapPin className="w-5 h-5" />
               </div>
-              {selected?.id === p.id && (
+              {selected?.id === pharm.id && (
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white rounded-xl shadow-lg border border-border px-3 py-2 whitespace-nowrap">
-                  <p className="text-xs font-semibold text-foreground">{p.name}</p>
-                  <p className="text-xs text-muted-foreground">{p.distance}</p>
+                  <p className="text-xs font-semibold text-foreground">{pharm.name}</p>
+                  <p className="text-xs text-muted-foreground">{pharm.distance}</p>
                 </div>
               )}
             </button>
